@@ -137,26 +137,43 @@ function App() {
   }
 
   
-
+  const f = document.getElementById('foo');
+  document.addEventListener('click', function(ev){
+      f.style.transform = 'translateY('+(ev.clientY-25)+'px)';
+      f.style.transform += 'translateX('+(ev.clientX-25)+'px)';
+  },false);
 
 
   return (
     <div className="App">
+        <div className="weatherWid">      
 
-      <h2>The temperature is: {weatherData.temp} degrees Fahrenheit</h2>
-      <h3>It feels like it is {weatherData.feels_like} degrees out!</h3>
-      <p>The weather is {weatherData.weatherMain}, the description is {weatherData.weatherDescription}</p>
-      <img src={`http://openweathermap.org/img/wn/${weatherData.iconCode}@2x.png`} />
-      <p>This weather data is from: {weatherData.placeName} and the wind speed is: {weatherData.windSpeed} miles per hour</p>
+          <h2>
+            {weatherData.temp} °F <br></br>
+            {weatherData.placeName} 
+          </h2>
+          <p className="weatherDetails">
+            {/* It feels like {weatherData.feels_like} °F outside. <br></br>
+            Wind speed: {weatherData.windSpeed} mph<br></br>
+            <br></br> */}
+            {weatherData.weatherMain}, {weatherData.weatherDescription}
+          </p>
+          <img className="weatherIcon" src={`http://openweathermap.org/img/wn/${weatherData.iconCode}@2x.png`} />
+         
+         
+          
+          <p className="weatherForm">Want to know the weather somewhere else?</p>
+          <form onSubmit={handleSubmit}>
+            <input name="lat" id="lat" placeholder="  Latitude" onChange={handleChange} /> <br></br>
+            <input name="lon" id="lon" placeholder="  Longitude" onChange={handleChange} /> <br></br>
+            <input type="submit" />
+          </form>
+          
+          <div id="foo" className="ball"></div>
 
-      <form onSubmit={handleSubmit}>
-        <input name="lat" id="lat" onChange={handleChange} />
-        <input name="lon" id="lon" onChange={handleChange} />
-        <input type="submit" />
-      </form>
-      
-    </div>
-  );
-}
+            </div>
+        </div>
+      );
+    }
 
 export default App;

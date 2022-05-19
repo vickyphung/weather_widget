@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  width: 50vw;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .App-logo {
@@ -7,15 +11,9 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,15 +22,88 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.weatherWid {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  border: 5px solid pink;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background-color: #5bb5ec;
+  color: black;
+  padding: 20px;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h2 {
+  font-size: 5vw;
+  color: white;
+}
+
+.weatherDetails {
+  font-size: 3.1vw;
+  color: rgb(243, 211, 231);
+  letter-spacing: .8px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.weatherIcon {
+  animation-duration: 2s;
+  animation-name: slidein;
   }
-  to {
-    transform: rotate(360deg);
+  
+  @keyframes slidein {
+    300% {
+      opacity: 0;
+      transform: translateY(-2000px);
+   }
+   60% {
+      opacity: 1;
+      transform: translateY(45px);
+   }
+   80% {
+      transform: translateY(-30px);
+   }
+   100% {
+      transform: translateY(0);
+   }
+  } 
+
+.weatherForm {
+  font-size: 2vw;
+  margin-bottom: 5px;
+}
+
+input[name=lat], input[name=lon] {
+  border: 1px solid gray;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  width: 35%;
   }
+
+input[type=submit] {
+  padding:5px 10px;
+  margin-top: 3px; 
+  color: gray;
+  border: white; 
+  background-color: white;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  font-size: .7em;
+  font-weight: bold;
+}
+
+.ball {
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
+  background: yellow;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 1s;
 }

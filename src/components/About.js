@@ -1,18 +1,13 @@
-import React from "react";
-import './css/about.css';
+// import React from "react";
+// import './css/about.css';
 
 
-const About = () => {
-    return (
-        <div className="boxOne">
-            <div className="boxOneChild">PINKY</div>
-        
-        
-        
-        </div>
+// const About = () => {
+//     return (
+    
             
    
-    )
-}
+//     )
+// }
 
-export default About
+// export default About
